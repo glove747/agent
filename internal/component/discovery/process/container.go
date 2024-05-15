@@ -13,7 +13,7 @@ import (
 
 var (
 	// cgroupContainerIDRe matches a container ID from a /proc/{pid}}/cgroup
-	cgroupContainerIDRe = regexp.MustCompile(`^.*/(?:.*-)?([0-9a-f]{64})(?:\.|\s*$)`)
+	cgroupContainerIDRe = regexp.MustCompile(`^.*/(?:.*-|.*:)?([0-9a-f]{64})(?:\.|\s*|$)`)
 )
 
 func getContainerIDFromCGroup(cgroup io.Reader) string {
